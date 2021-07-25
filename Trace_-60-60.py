@@ -14,6 +14,7 @@ import numpy as np
 
 from random import uniform
 from pipython import GCSDevice, pitools
+from pprint import pprint
 # récupération data -60 degré
 print('====== LOAD data -60  =======')
 d1 = np.loadtxt('-60.txt')
@@ -45,3 +46,18 @@ print('=====BLOCK test ========')
 block = np.hstack((d1_26ghz,d2_26ghz,d3_26ghz))
 print(block)
 np.savetxt('block.txt', block)
+print('')
+# ========================================================================
+# ========================================================================
+# ========================================================================
+print('==================================     CODE 2 REPLCAE ELEMENT IN LIST')
+block = ['-0.02093757', '0.05796649', '0.04455424', '0.05051775', '0.07904024', '0.01086844']
+#print(block) # A,Quick,brown,fox,jumped,over,the,lazy,dog
+print("liste originale : " + str(block))
+#remplacement
+res = [elem.replace('.', ',') for elem in block]
+# print result
+print("apres replaceme : " + str(res))
+print('===')
+
+#pprint(dir(block.))
