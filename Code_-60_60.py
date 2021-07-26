@@ -139,7 +139,7 @@ instr.write_str_with_opc('CALC2:FORM  MLOGarithmic; :DISP:WIND1:TRAC3:FEED "Ch1T
 
 
 # ********************************************
-# MOVE 1
+# MOVE 1 - 0
 # ********************************************
 print('============ MOVING TO RIGHT ...°')
 gcs.SVO (axis, 1) # Turn on servo control of axis "A"
@@ -152,257 +152,818 @@ print('MOVE 1 ...... -60.0°')
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace1 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_-60deg.txt', trace1)
+np.savetxt('-60A.txt', trace1)
 print(trace1)
 #  ==================================>  trace 2
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace2 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_-60deg.txt', trace2)
+np.savetxt('-60B.txt', trace2)
 print(trace2)
 
-
 # ********************************************
-# MOVE 2
+# MOVE 2 - 3
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 2 ...... -50°')
 #  ==================================>  trace 3
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace3 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_-50deg.txt', trace3)
+np.savetxt('-57A.txt', trace3)
 print(trace3)
 #  ==================================>  trace 4
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace4= instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_-50deg.txt', trace4)
+np.savetxt('-57B.txt', trace4)
 print(trace4)
 # ********************************************
-# MOVE 3
+# MOVE 3 - 6
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 3 ...... -40°')
 #  ==================================>  trace 5
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace5 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_-40deg.txt', trace5)
+np.savetxt('-54A.txt', trace5)
 print(trace5)
 #  ==================================>  trace 6
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace6 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_-40deg.txt', trace6)
+np.savetxt('-54B.txt', trace6)
 print(trace6)
 
 # ********************************************
-# MOVE 4
+# MOVE 4 - 9
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 4 ...... -30°')
 #  ==================================>  trace 7
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace7 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_-30deg.txt', trace7)
+np.savetxt('-51A.txt', trace7)
 print(trace7)
 #  ==================================>  trace 8
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace8 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_-30deg.txt', trace8)
+np.savetxt('-51B.txt', trace8)
 print(trace8)
 
 # ********************************************
-# MOVE 5
+# MOVE 5 12
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 5 ...... -20°')
 #  ==================================>  trace 9
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace9 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_-20deg.txt', trace9)
+np.savetxt('-48A.txt', trace9)
 print(trace9)
 #  ==================================>  trace 10
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace10 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_-20deg.txt', trace10)
+np.savetxt('-48B.txt', trace10)
 print(trace10)
 
 # ********************************************
-# MOVE 6
+# MOVE 6     15
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 6 ...... -10°')
 #  ==================================>  trace 11
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace11 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_-10deg.txt', trace11)
+np.savetxt('-45A.txt', trace11)
 print(trace11)
 #  ==================================>  trace 12
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace12 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_-10deg.txt', trace12)
+np.savetxt('-45B.txt', trace12)
 print(trace12)
 
 # ********************************************
-# MOVE 7 - 0 °
+# MOVE 7 -  18
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 7 ...... 0° (Référence)')
 #  ==================================>  trace 13
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace13 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_0deg.txt', trace13)
+np.savetxt('-42A.txt', trace13)
 print(trace13)
 #  ==================================>  trace 14
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace14 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_0deg.txt', trace14)
+np.savetxt('-42B.txt', trace14)
 print(trace14)
 
 # ********************************************
-# MOVE 8 - 10 °
+# MOVE 8 - 21
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 8 ...... + 10°')
 #  ==================================>  trace 15
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace15 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_+10deg.txt', trace15)
+np.savetxt('-39A.txt', trace15)
 print(trace15)
 #  ==================================>  trace 16
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace16 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_+10deg.txt', trace16)
+np.savetxt('-39B.txt', trace16)
 print(trace16)
 
 # ********************************************
-# MOVE 9 - 20 °
+# MOVE 9 - 24
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 9 ...... + 20°')
 #  ==================================>  trace 17
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace17 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_+20deg.txt', trace17)
+np.savetxt('-36A.txt', trace17)
 print(trace17)
 #  ==================================>  trace 18
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace18 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_+20deg.txt', trace18)
+np.savetxt('-36B.txt', trace18)
 print(trace18)
 
 # ********************************************
-# MOVE 10 - 30 °
+# MOVE 10 - 27
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 9 ...... + 30°')
 #  ==================================>  trace 19
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace19 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_+30deg.txt', trace19)
+np.savetxt('-33A.txt', trace19)
 print(trace19)
 #  ==================================>  trace 20
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace20 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_+30deg.txt', trace20)
+np.savetxt('-33B.txt', trace20)
 print(trace20)
 
 # ********************************************
-# MOVE 11 - 30 °
+# MOVE 11     30 °
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 9 ...... + 40°')
 #  ==================================>  trace 21
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace21 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_+40deg.txt', trace21)
+np.savetxt('-30A.txt', trace21)
 print(trace21)
 #  ==================================>  trace 22
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace22 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_+40deg.txt', trace22)
+np.savetxt('-30B.txt', trace22)
 print(trace22)
 
 # ********************************************
-# MOVE 12 - 30 °
+# MOVE 12      33 °
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 9 ...... + 50°')
 #  ==================================>  trace 23
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace23 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_+50deg.txt', trace23)
+np.savetxt('-27A.txt', trace23)
 print(trace23)
 #  ==================================>  trace 24
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace24 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_+50deg.txt', trace24)
+np.savetxt('-27B.txt', trace24)
 print(trace24)
 
 # ********************************************
-# MOVE 13 - 30 °
+# MOVE 13      36 °
 # ********************************************
 print('============ MOVING TO LEFT ...°')
-gcs.MVR(axis, 10.0)
+gcs.MVR(axis, 3.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 9 ...... + 60°')
 #  ==================================>  trace 25
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace25 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_A2_+60deg.txt', trace25)
+np.savetxt('-24A.txt', trace25)
 print(trace25)
 #  ==================================>  trace 26
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace26 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('trac_B2_+60deg.txt', trace26)
+np.savetxt('-24B.txt', trace26)
 print(trace26)
 
+
 # ********************************************
-# MOVE 14 - 30 °
+# MOVE 14      39 °                             ============== NEW MOV  27 - 28
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 27
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace27 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-21A.txt', trace27)
+#print(trace25)
+#  ==================================>  trace 28
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace28 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-21B.txt', trace28)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      42 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace29 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-18A.txt', trace29)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace30 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-18B.txt', trace30)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      45 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace31 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-15A.txt', trace31)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace32 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-15B.txt', trace32)
+#print(trace26)
+
+
+# ********************************************
+# MOVE 13      48 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace33 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-12A.txt', trace33)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace34 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-12B.txt', trace34)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      51 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace35 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-9A.txt', trace35)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace36 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-9B.txt', trace36)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      54
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace37 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-6A.txt', trace37)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace38 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-6B.txt', trace38)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      57
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 39
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace39 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-3A.txt', trace39)
+#print(trace25)
+#  ==================================>  trace 40
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace40 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('3B.txt', trace40)
+#print(trace26)
+
+# ******************************************** =================================
+# MOVE 13      60  °                           ====================== REF 0 Degré
+# ******************************************** =================================
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace41 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('0a.txt', trace41)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace42 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('0b.txt', trace42)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      63  °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace43 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+3A.txt', trace43)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace44 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+3B.txt', trace44)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      66 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace45 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+6A.txt', trace45)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace46 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+6B.txt', trace46)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      69 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace47 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+9A.txt', trace47)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace48 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+9B.txt', trace48)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      72 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace49 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+12A.txt', trace49)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace50 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+12B.txt', trace50)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      75 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace51 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+15A.txt', trace51)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace52 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+15B.txt', trace52)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      78 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace53 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+18A.txt', trace53)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace54 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+18B.txt', trace54)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      81 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace55 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+21A.txt', trace55)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace56 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+21B.txt', trace56)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      84 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace57 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+24A.txt', trace57)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace58 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+24B.txt', trace58)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      87 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace59 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+27A.txt', trace59)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace60 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+27B.txt', trace60)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      90 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace61 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+30A.txt', trace61)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace62 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+30B.txt', trace62)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      93 °                         ******************************
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace63 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+33A.txt', trace63)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace64 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+33B.txt', trace64)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      96 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace65 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+36A.txt', trace65)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace66 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+36B.txt', trace66)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      99 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace67 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+39A.txt', trace67)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace68 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+39B.txt', trace68)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      102 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace69 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+42A.txt', trace69)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace70 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+42A.txt', trace70)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      105 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace71 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+45A.txt', trace71)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace72 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+45B.txt', trace72)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      108 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace73 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+48A.txt', trace73)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace74 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+48B.txt', trace74)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      111 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace75 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+51A.txt', trace75)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace76 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+51B.txt', trace76)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      114 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace77 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+54Atxt', trace77)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace78 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+54B.txt', trace78)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      117 °
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace79 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+57A.txt', trace79)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace80 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+57B.txt', trace80)
+#print(trace26)
+
+# ********************************************
+# MOVE 13      120 °                                ++++++++++++++++ FIN MOV
+# ********************************************
+print('============ MOVING TO LEFT ...°')
+gcs.MVR(axis, 3.0)
+pitools.waitontarget(gcs, axis)
+print('MOVE 9 ...... + 60°')
+#  ==================================>  trace 25
+instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
+trace81 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('+60A.txt', trace81)
+#print(trace25)
+#  ==================================>  trace 26
+instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
+trace82 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
+instr.query_opc()
+np.savetxt('-60B.txt', trace82)
+#print(trace26)
+
+# ********************************************
+# MOVE 14      - 60 retour a 0 REF
 # ********************************************
 print('============ MOVING TO RIGHT ...°')
 gcs.SVO (axis, 1) # Turn on servo control of axis "A"
@@ -432,6 +993,138 @@ print('MOVE 1 ...... - 60.0°')
 print('')
 print('... DONE ! ')
 print('')
+print('====== Load 21 -22  =======')
+d1 = trace1[20:22]
+d2 = trace2[20:22]
+d3 = trace3[20:22]
+d4 = trace4[20:22]
+d5 = trace5[20:22]
+d6 = trace6[20:22]
+d7 = trace7[20:22]
+d8 = trace8[20:22]
+d9 = trace9[20:22]
+d10 = trace10[20:22]
+
+d11 = trace11[20:22]
+d12 = trace12[20:22]
+d13 = trace13[20:22]
+d14 = trace14[20:22]
+d15 = trace15[20:22]
+d16 = trace16[20:22]
+d17 = trace17[20:22]
+d18 = trace18[20:22]
+d19 = trace19[20:22]
+d20 = trace20[20:22]
+
+d21 = trace10[20:22]
+d22 = trace10[20:22]
+d23 = trace10[20:22]
+d24 = trace10[20:22]
+d25 = trace10[20:22]
+d26 = trace10[20:22]
+d27 = trace10[20:22]
+d28 = trace10[20:22]
+d29 = trace10[20:22]
+d30 = trace10[20:22]
+
+d31 = trace10[20:22]
+d32 = trace10[20:22]
+d33 = trace10[20:22]
+d34 = trace10[20:22]
+d35 = trace10[20:22]
+d36 = trace10[20:22]
+d37 = trace10[20:22]
+d38 = trace10[20:22]
+d39 = trace10[20:22]
+d40 = trace10[20:22]
+
+d41 = trace10[20:22]
+d42 = trace10[20:22]
+d43 = trace10[20:22]
+d44 = trace10[20:22]
+d45 = trace10[20:22]
+d46 = trace10[20:22]
+d47 = trace10[20:22]
+d48 = trace10[20:22]
+d49 = trace10[20:22]
+d50 = trace10[20:22]
+
+d51 = trace10[20:22]
+d52 = trace10[20:22]
+d53 = trace10[20:22]
+d54 = trace10[20:22]
+d55 = trace10[20:22]
+d56 = trace10[20:22]
+d57 = trace10[20:22]
+d58 = trace10[20:22]
+d59 = trace10[20:22]
+d60 = trace10[20:22]
+
+d61 = trace10[20:22]
+d62 = trace10[20:22]
+d63 = trace10[20:22]
+d64 = trace10[20:22]
+d65 = trace10[20:22]
+d66 = trace10[20:22]
+d67 = trace10[20:22]
+d68 = trace10[20:22]
+d69 = trace10[20:22]
+d70 = trace10[20:22]
+
+d71 = trace10[20:22]
+d72 = trace10[20:22]
+d73 = trace10[20:22]
+d74 = trace10[20:22]
+d75 = trace10[20:22]
+d76 = trace10[20:22]
+d77 = trace10[20:22]
+d78 = trace10[20:22]
+d79 = trace10[20:22]
+d80 = trace10[20:22]
+
+d81 = trace10[20:22]
+d82 = trace10[20:22]
+d83 = trace10[20:22]
+d84 = trace10[20:22]
+d85 = trace10[20:22]
+d86 = trace10[20:22]
+d87 = trace10[20:22]
+d88 = trace10[20:22]
+d89 = trace10[20:22]
+d90 = trace10[20:22]
+
+d91 = trace10[20:22]
+d92 = trace10[20:22]
+d93 = trace10[20:22]
+d94 = trace10[20:22]
+d95 = trace10[20:22]
+d96 = trace10[20:22]
+d97 = trace10[20:22]
+d98 = trace10[20:22]
+d99 = trace10[20:22]
+d100 = trace10[20:22]
+
+d101 = trace1[20:22]
+d102 = trace10[20:22]
+d103 = trace10[20:22]
+d104 = trace10[20:22]
+d105 = trace10[20:22]
+d106 = trace10[20:22]
+d107 = trace10[20:22]
+d108 = trace10[20:22]
+d109 = trace10[20:22]
+d200 = trace10[20:22]
+
+print('=====BLOCK 26 GHz========')
+block = np.hstack((d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,d32,d33,d34,d35,d36,d37,d38,d39,d40,d41,d42,d43,d44,d45,d46,d47,d48,d49,d50))
+print(block)
+np.savetxt('block.txt', block)
+print('')
+# ========================================================================
+# ========================================================================
+# ========================================================================
+
+
 
 print('===========================================================================')
 print('============= TASK 5 - 1 : Traces ASCII ... ')
