@@ -119,24 +119,29 @@ t = time() # Start Time
 #instr.write_str_with_opc('CALC1:FORM  MLOGarithmic; :DISP:WIND:TRAC3:FEED "Ch1Tr2"') # Afiichage fig; format : phase
 
 instr.write_str('DISPLAY:WINDOW1:TRACE1:DELETE')
+instr.query_opc()
 instr.write_str_with_opc('SOURce1:PATH1:DIRectaccess B16')
+instr.query_opc()
 instr.write_str_with_opc('SOURce1:PATH2:DIRectaccess B16')
+instr.query_opc()
 
 instr.write_str('DISP:WIND1:STAT ON')
+instr.query_opc()
 
 instr.write_str_with_opc('SWE:POIN 21') # nombre d'échantillon
+instr.query_opc()
 
 # ====== "Ch1Tr1", "B2/A1D1" (PORT 1) ..... en dB
 instr.write_str_with_opc('CALC1:PAR:SDEF "Ch1Tr1", "B2/A1D1"') # calcul parametre S= B2/A1, nom : Ch1Tr1
 instr.write_str_with_opc('CALC1:FORM  MLOGarithmic; :DISP:WIND1:TRAC2:FEED "Ch1Tr1"') # Afiichage fig; format : phase;
 #instr.write_str_with_opc('CALC1:FORM  PHASe; :DISP:WIND:TRAC2:FEED "Ch1Tr1"')
 #instr.write_str_with_op('SWE:AXIS:FREQ ' Port 1; Source'')
-
+instr.query_opc()
 # ===== "Ch1Tr2", "B2D2/A2D2" (PORT 2) ..... en dB
 instr.write_str_with_opc('CALC2:PAR:SDEF "Ch1Tr2","B2D2/A2D2"') # calcul parametre S= B2/A1, nom : Ch1Tr1
 instr.write_str_with_opc('CALC2:FORM  MLOGarithmic; :DISP:WIND1:TRAC3:FEED "Ch1Tr2"') # Afiichage fig; format : phase
 #instr.write_str_with_opc('CALC1:FORM  PHASe; :DISP:WIND:TRAC3:FEED "Ch1Tr2"')
-
+instr.query_opc()
 
 # ********************************************
 # MOVE 1 - 0
@@ -145,7 +150,9 @@ print('============ MOVING TO RIGHT ...°')
 gcs.SVO (axis, 1) # Turn on servo control of axis "A"
 #gcs.REF("axis") # Réference
 REFMODE = ('FNL',1)
-#gcs.MVR(axis, -60.0)
+#gcs.MVR(axis, -80.0)
+#pitools.waitontarget(gcs, axis)
+gcs.MVR(axis, 20.0)
 pitools.waitontarget(gcs, axis)
 print('MOVE 1 ...... -60.0°')
 #  ==================================>  trace 1
@@ -178,6 +185,7 @@ print(trace3)
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
 trace4= instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
+#pitools.waitontarget(gcs, axis)
 np.savetxt('-57B.txt', trace4)
 print(trace4)
 # ********************************************
@@ -913,7 +921,7 @@ print('MOVE 9 ...... + 60°')
 instr.write_str_with_opc(':CALCULATE1:PARAMETER:SELECT "Ch1Tr1"')
 trace77 = instr.query_bin_or_ascii_float_list_with_opc('FORM ASCII; :TRAC? CH1DATA', 50000)# récupérer un tableau de flottant
 instr.query_opc()
-np.savetxt('+54Atxt', trace77)
+np.savetxt('+54A.txt', trace77)
 #print(trace25)
 #  ==================================>  trace 26
 instr.write_str_with_opc(':CALCULATE2:PARAMETER:SELECT "Ch1Tr2"')
@@ -1016,109 +1024,83 @@ d18 = trace18[20:22]
 d19 = trace19[20:22]
 d20 = trace20[20:22]
 
-d21 = trace10[20:22]
-d22 = trace10[20:22]
-d23 = trace10[20:22]
-d24 = trace10[20:22]
-d25 = trace10[20:22]
-d26 = trace10[20:22]
-d27 = trace10[20:22]
-d28 = trace10[20:22]
-d29 = trace10[20:22]
-d30 = trace10[20:22]
+d21 = trace21[20:22]
+d22 = trace22[20:22]
+d23 = trace23[20:22]
+d24 = trace24[20:22]
+d25 = trace25[20:22]
+d26 = trace26[20:22]
+d27 = trace27[20:22]
+d28 = trace28[20:22]
+d29 = trace29[20:22]
+d30 = trace30[20:22]
 
-d31 = trace10[20:22]
-d32 = trace10[20:22]
-d33 = trace10[20:22]
-d34 = trace10[20:22]
-d35 = trace10[20:22]
-d36 = trace10[20:22]
-d37 = trace10[20:22]
-d38 = trace10[20:22]
-d39 = trace10[20:22]
-d40 = trace10[20:22]
+d31 = trace31[20:22]
+d32 = trace32[20:22]
+d33 = trace33[20:22]
+d34 = trace34[20:22]
+d35 = trace35[20:22]
+d36 = trace36[20:22]
+d37 = trace37[20:22]
+d38 = trace38[20:22]
+d39 = trace39[20:22]
+d40 = trace40[20:22]
 
-d41 = trace10[20:22]
-d42 = trace10[20:22]
-d43 = trace10[20:22]
-d44 = trace10[20:22]
-d45 = trace10[20:22]
-d46 = trace10[20:22]
-d47 = trace10[20:22]
-d48 = trace10[20:22]
-d49 = trace10[20:22]
-d50 = trace10[20:22]
+d41 = trace41[20:22]
+d42 = trace42[20:22]
+d43 = trace43[20:22]
+d44 = trace44[20:22]
+d45 = trace45[20:22]
+d46 = trace46[20:22]
+d47 = trace47[20:22]
+d48 = trace48[20:22]
+d49 = trace49[20:22]
+d50 = trace50[20:22]
 
-d51 = trace10[20:22]
-d52 = trace10[20:22]
-d53 = trace10[20:22]
-d54 = trace10[20:22]
-d55 = trace10[20:22]
-d56 = trace10[20:22]
-d57 = trace10[20:22]
-d58 = trace10[20:22]
-d59 = trace10[20:22]
-d60 = trace10[20:22]
+d51 = trace51[20:22]
+d52 = trace52[20:22]
+d53 = trace53[20:22]
+d54 = trace54[20:22]
+d55 = trace55[20:22]
+d56 = trace56[20:22]
+d57 = trace57[20:22]
+d58 = trace58[20:22]
+d59 = trace59[20:22]
+d60 = trace60[20:22]
 
-d61 = trace10[20:22]
-d62 = trace10[20:22]
-d63 = trace10[20:22]
-d64 = trace10[20:22]
-d65 = trace10[20:22]
-d66 = trace10[20:22]
-d67 = trace10[20:22]
-d68 = trace10[20:22]
-d69 = trace10[20:22]
-d70 = trace10[20:22]
+d61 = trace61[20:22]
+d62 = trace62[20:22]
+d63 = trace63[20:22]
+d64 = trace64[20:22]
+d65 = trace65[20:22]
+d66 = trace66[20:22]
+d67 = trace67[20:22]
+d68 = trace68[20:22]
+d69 = trace69[20:22]
+d70 = trace70[20:22]
 
-d71 = trace10[20:22]
-d72 = trace10[20:22]
-d73 = trace10[20:22]
-d74 = trace10[20:22]
-d75 = trace10[20:22]
-d76 = trace10[20:22]
-d77 = trace10[20:22]
-d78 = trace10[20:22]
-d79 = trace10[20:22]
-d80 = trace10[20:22]
+d71 = trace71[20:22]
+d72 = trace72[20:22]
+d73 = trace73[20:22]
+d74 = trace74[20:22]
+d75 = trace75[20:22]
+d76 = trace76[20:22]
+d77 = trace77[20:22]
+d78 = trace78[20:22]
+d79 = trace79[20:22]
+d80 = trace80[20:22]
 
-d81 = trace10[20:22]
-d82 = trace10[20:22]
-d83 = trace10[20:22]
-d84 = trace10[20:22]
-d85 = trace10[20:22]
-d86 = trace10[20:22]
-d87 = trace10[20:22]
-d88 = trace10[20:22]
-d89 = trace10[20:22]
-d90 = trace10[20:22]
-
-d91 = trace10[20:22]
-d92 = trace10[20:22]
-d93 = trace10[20:22]
-d94 = trace10[20:22]
-d95 = trace10[20:22]
-d96 = trace10[20:22]
-d97 = trace10[20:22]
-d98 = trace10[20:22]
-d99 = trace10[20:22]
-d100 = trace10[20:22]
-
-d101 = trace1[20:22]
-d102 = trace10[20:22]
-d103 = trace10[20:22]
-d104 = trace10[20:22]
-d105 = trace10[20:22]
-d106 = trace10[20:22]
-d107 = trace10[20:22]
-d108 = trace10[20:22]
-d109 = trace10[20:22]
-d200 = trace10[20:22]
+d81 = trace81[20:22]
+d82 = trace82[20:22]
 
 print('=====BLOCK 26 GHz========')
-block = np.hstack((d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,d32,d33,d34,d35,d36,d37,d38,d39,d40,d41,d42,d43,d44,d45,d46,d47,d48,d49,d50))
-print(block)
-np.savetxt('block.txt', block)
+blockA = np.hstack((d1,d3,d5,d7,d9,d11,d13,d15,d17,d19,d21,d23,d25,d27,d29,d31,d33,d35,d37,d39,d41,d43,d45,d47,d49,d51,d53,d55,d57,d59,d61,d63,d65,d67,d69,d71,d73,d75,d77,d79,d81))
+print(blockA)
+np.savetxt('blockA.txt', blockA)
+print('')
+blockB = np.hstack((d2,d4,d6,d8,d10,d12,d14,d16,d18,d20,d22,d24,d26,d28,d30,d32,d34,d36,d38,d40,d42,d44,d46,d48,d50,d52,d54,d56,d58,d60,d62,d64,d66,d68,d70,d72,d74,d76,d78,d80,d82))
+print(blockB)
+np.savetxt('blockB.txt', blockB)
 print('')
 # ========================================================================
 # ========================================================================
